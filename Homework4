@@ -1,0 +1,9 @@
+Question 1: Give a count of all videos currently out.
+
+select count(*)
+from rental
+where return_date is null
+
+Output: 
+Count
+183
