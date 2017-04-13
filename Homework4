@@ -32,7 +32,7 @@ Heather	Morris	7.98	null
 Gail	Knight	7.98	null
 Cathy	Spencer	7.98	null
 Margie	Wade	7.98	null
-Justin	Ngo	7.98	null
+    Justin	Ngo	7.98	null
 Carolyn	Perez	5.98	null
 Lucy	Wheeler	5.98	null
 Natalie	Meyer	5.98	null
@@ -50,21 +50,21 @@ GROUP BY r.customer_id,c.first_name,c.last_name
 ORDER BY overdue DESC
 
 First_name	Last_name	Overdue
-Karl	Seal	15.00
-Wesley	Bull	15.00
-June	Carroll	15.00
-Louis	Leone	15.00
-Eleanor	Hunt	14.00
-Lena	Jensen	14.00
-Michelle	Clark	14.00
-Brittany	Riley	14.00
-Neil	Renner	13.00
-Marion	Snyder	13.00
-Jerry	Jordon	13.00
+    Karl	Seal	15.00
+    Wesley	Bull	15.00
+    June	Carroll	15.00
+    Louis	Leone	15.00
+    Eleanor	Hunt	14.00
+    Lena	Jensen	14.00
+   Michelle	Clark	14.00
+   Brittany	Riley	14.00
+    Neil	Renner	13.00
+    Marion	Snyder	13.00
+    Jerry	Jordon	13.00
 Jorge	Olivares	12.00
-Alex	Gresham	12.00
-Irene	Price	12.00
-Curtis	Irby	12.00
+    Alex	Gresham	12.00
+    Irene	Price	12.00
+    Curtis	Irby	12.00
 
 
 ******************************************
