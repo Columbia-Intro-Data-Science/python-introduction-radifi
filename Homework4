@@ -1,3 +1,7 @@
+Rachel Field
+Homework 4
+
+************************
 Question 1: Give a count of all videos currently out.
 
 select count(*)
@@ -7,3 +11,74 @@ where return_date is null
 Output: 
 Count
 183
+
+
+********************
+Question 2: Make a list of all customer names who have videos out and how much they owe.
+
+SELECT c.first_name, c.last_name, payment.amount, r.return_date
+FROM rental r
+INNER JOIN customer AS c ON c.customer_id=r.customer_id
+INNER JOIN payment ON r.rental_id = payment.rental_id
+WHERE r.return_date is NULL
+GROUP BY r.customer_id, c.first_name, c.last_name, payment.amount, r.return_date
+ORDER BY payment.amount DESC
+
+
+First_name	Last_name	Amount	Return_date
+Mildred	Bailey	9.98	null
+Tammy	Sanders	8.97	null
+Heather	Morris	7.98	null
+Gail	Knight	7.98	null
+Cathy	Spencer	7.98	null
+Margie	Wade	7.98	null
+Justin	Ngo	7.98	null
+Carolyn	Perez	5.98	null
+Lucy	Wheeler	5.98	null
+Natalie	Meyer	5.98	null
+Sonia	Gregory	5.98	null
+
+
+************************************
+Question 4: Using a $1 per day late fee. Find out which users owe the most assuming all rentals are a week long.
+
+SELECT c.first_name, c.last_name, SUM(DATE_PART('day',r.return_date-r.rental_date-INTERVAL'7'day)) AS overdue
+FROM rental r
+INNER JOIN customer AS c ON c.customer_id=r.customer_id
+WHERE DATE_PART('day',r.return_date-r.rental_date-INTERVAL'7'day)>0
+GROUP BY r.customer_id,c.first_name,c.last_name
+ORDER BY overdue DESC
+
+First_name	Last_name	Overdue
+Karl	Seal	15.00
+Wesley	Bull	15.00
+June	Carroll	15.00
+Louis	Leone	15.00
+Eleanor	Hunt	14.00
+Lena	Jensen	14.00
+Michelle	Clark	14.00
+Brittany	Riley	14.00
+Neil	Renner	13.00
+Marion	Snyder	13.00
+Jerry	Jordon	13.00
+Jorge	Olivares	12.00
+Alex	Gresham	12.00
+Irene	Price	12.00
+Curtis	Irby	12.00
+
+
+******************************************
+Question 5: What hour of the day to people rent the most ?
+
+SELECT hour,
+       count(*)
+FROM
+  (SELECT extract(hour
+                  FROM rental_date) AS hour
+   FROM rental) AS hour
+GROUP BY 1
+ORDER BY COUNT DESC
+LIMIT 1
+
+Hour	Count
+15.00	887
